@@ -192,10 +192,25 @@ setInterval(() => {
   }
 }, 10);
 
-window.addEventListener("k", checkKeyPressed, false);
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Press K to Display Value</title>
+</head>
+<body>
+  <h2>Enter something:</h2>
+  <input type="text" id="myInput" placeholder="Type something here..." />
+  <p id="output"></p>
 
-function checkKeyPressed(evt) {
-    if (evt.keyCode == "13")   {
-      overheatvalue.style.opacity=1
-      
-    
+  <script>
+    document.addEventListener('keydown', function(event) {
+     //checks if k was pressed
+      if (event.key.toLowerCase() === 'k') {
+        const inputVal = document.getElementById('myInput').value;
+        document.getElementById('output').textContent = `You typed: ${inputVal}`;
+      }
+    });
+  </script>
+</body>
+</html>
