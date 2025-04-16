@@ -191,3 +191,11 @@ setInterval(() => {
     document.getElementById("fire").style.marginTop = "0px";
   }
 }, 10);
+
+window.addEventListener("k", checkKeyPressed, false);
+
+function checkKeyPressed(evt) {
+    if (evt.keyCode == "13")   {
+      overheatvalue.style.opacity=1
+      
+    
