@@ -190,4 +190,13 @@ setInterval(() => {
   } else {
     document.getElementById("fire").style.marginTop = "0px";
   }
+  document.addEventListener('keydown', function(event) {
+    //checks if k was pressed
+     if (event.key.toLowerCase() === 'k') {
+       const inputVal = document.getElementById
+       document.getElementById('output').textContent = `You typed: ${inputVal}`;
+     }
+   });
 }, 10);
+
+  
