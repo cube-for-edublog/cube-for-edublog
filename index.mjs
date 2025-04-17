@@ -47,6 +47,8 @@ let inOverdrive = false;
 
 let speedMultiplier = 1;
 
+let showHeat = false;
+
 setInterval(() => {
   fov = 7 - document.getElementById("size").value / 40;
 
@@ -60,7 +62,7 @@ setInterval(() => {
     document.getElementById("sliderx").value > 160
   ) {
     inOverdrive = true;
-    speedMultiplier = 1.3 + overdrive / 2000;
+    speedMultiplier = 1.4 + overdrive / 2000;
   }
 
   rotationy +=
@@ -85,15 +87,9 @@ setInterval(() => {
     x = Math.cos(rotationy) * x_temp - Math.sin(rotationy) * z_temp;
     z = Math.sin(rotationy) * x_temp + Math.cos(rotationy) * z_temp;
 
-    x =
-      (((x * fov) / (fov + z)) * 130 * document.getElementById("size").value) /
-        100 +
-      230;
+    x = (((x * fov) / (fov + z)) * 130 * document.getElementById("size").value) / 100 + 230;
+    y = (((y * fov) / (fov + z)) * 130 * document.getElementById("size").value) / 100 + 250;
 
-    y =
-      (((y * fov) / (fov + z)) * 130 * document.getElementById("size").value) /
-        100 +
-      250;
 
     let dot = document.getElementById("dot" + count);
     dot.style.marginLeft = x + "px";
@@ -125,6 +121,7 @@ setInterval(() => {
           overdrive -= 0.15 - document.getElementById("slidery").value / 900;
       }
   
+
       if(document.getElementById("sliderx").value > 160)
       {
           overdrive += 0.2 + document.getElementById("sliderx").value / 400;
@@ -155,25 +152,32 @@ setInterval(() => {
 
     if (overdrive > 330) {
       //cooling sliders
+
+        //show sliders
       document.getElementById("cool1").style.opacity = 1;
       document.getElementById("cool2").style.opacity = 1;
 
       document.getElementById("cooltext1").style.opacity = 1;
       document.getElementById("cooltext2").style.opacity = 1;
 
+      //makes seeing cool slider value easier
       let cool1 = document.getElementById("cool1").value;
       let cool2 = document.getElementById("cool2").value;
-
+      
+      //logic
       if (cool1 > 500) {
-        overdrive -= 0.2;
+        overdrive -= 0.25 + cool1 / 5000;
         document.getElementById("cool1").value -= 1;
       }
+
       if (cool2 < 500) {
-        overdrive -= 0.2;
+        overdrive -= 0.25 + (1000 - cool2) / 5000;
         document.getElementById("cool2").value -= -1;
       }
     }
-  } else {
+  } 
+  else {
+
     //set all opacity to 0
     document.getElementById("overheatText").style.opacity = 0;
 
@@ -187,7 +191,30 @@ setInterval(() => {
   //extremely overheating
   if (overdrive > 500) {
     document.getElementById("fire").style.marginTop = "-800px";
-  } else {
+  } 
+  else {
     document.getElementById("fire").style.marginTop = "0px";
   }
+
+  //overdrive secret stuff
+  document.getElementById("heatText").textContent = Math.round(overdrive.toString());
+
+  document.addEventListener('keydown', function(event) {
+    if(event.key == "k")
+      {
+        showHeat = !showHeat;
+      }
+  })
+
+  if (showHeat) {
+    document.getElementById("heatText").style.opacity = 1;
+  }
+  else {
+    document.getElementById("heatText").style.opacity = 0;
+  }
+  
+
+
+
+
 }, 10);
