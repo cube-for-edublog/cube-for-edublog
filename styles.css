@@ -10,12 +10,6 @@ body {
   display: inline-block;
   position: fixed;
 }
-.line {
-  border: 0;
-  background-color: #000;
-  height: 3px;
-  cursor: pointer;
-}
 
 .slider {
   -webkit-appearance: none;
@@ -34,7 +28,13 @@ body {
   width: 150px;
   height: 10px;
   border-radius: 20px;
-  background: linear-gradient(to right, #d3d3d3 0%, #d3d3d3 80%, #ff0000 80%, #ff0000 100%);
+  background: linear-gradient(
+    to right,
+    #d3d3d3 0%,
+    #d3d3d3 80%,
+    #ff0000 80%,
+    #ff0000 100%
+  );
   outline: none;
   opacity: 0.7;
   -webkit-transition: 0.2s;
@@ -44,6 +44,44 @@ body {
 .warning {
   position: fixed;
   color: red;
+}
+
+.coolslider {
+  -webkit-appearance: none;
+  width: 150px;
+  height: 13px;
+  border-radius: 30px;
+  background: linear-gradient(
+    to right,
+    #d3d3d3 0%,
+    #d3d3d3 50%,
+    #0080ff 50%,
+    #0080ff 100%
+  );
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
+  opacity: 0;
+}
+
+.coolslider2 {
+  -webkit-appearance: none;
+  width: 150px;
+  height: 13px;
+  border-radius: 30px;
+  background: linear-gradient(
+    to left,
+    #d3d3d3 0%,
+    #d3d3d3 50%,
+    #0080ff 50%,
+    #0080ff 100%
+  );
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
+  opacity: 0;
 }
 
 canvas {

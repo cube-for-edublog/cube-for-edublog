@@ -59,30 +59,31 @@
     </div>
 
     <div class="slidecontainer">
-      <h4>Y</h4>
+      <h4 id="cooltext1" >Cooling rod 1</h4>
       <input
         type="range"
         min="1"
-        max="200"
-        value="100"
-        class="slider"
-        id="y-add"
+        max="1000"
+        value="1000"
+        class="coolslider"
+        id="cool1"
       />
     </div>
 
     <div class="slidecontainer">
-      <h4>X</h4>
+      <h4 id="cooltext2" >Cooling rod 2</h4>
       <input
         type="range"
         min="1"
-        max="200"
-        value="100"
-        class="slider"
-        id="x-add"
+        max="1000"
+        value="0"
+        class="coolslider2"
+        id="cool2"
       />
     </div>
 
     <div class="slidecontainer">
+
 
 
     <canvas
@@ -93,8 +94,18 @@
       style="margin-top: -400px; margin-left: 150px"
     ></canvas>
 
+    <h1 id="heatText" class="warning" style="opacity: 1; margin-top: -300px; margin-left: 40%;" >0</h1> 
 
-      <h1 id="overheatText" class="warning" style="margin-top: -200px; margin-left: 300px;" >OVERHEATING</h1>
+    <h1 id="overheatText" class="warning" style="margin-top:-200px; margin-left: 300px; opacity: 0;" >OVERHEATING</h1>
+
+    <img src="fire.gif" id="fire" draggable="false" style="width:700px; height:600px; margin-top: -800px;">
+
+    
+
+      
+      
+
+      
     
     <script src="./index.mjs" type="module"></script>
   </body>
