@@ -87,11 +87,9 @@ setInterval(() => {
     x = Math.cos(rotationy) * x_temp - Math.sin(rotationy) * z_temp;
     z = Math.sin(rotationy) * x_temp + Math.cos(rotationy) * z_temp;
 
-    x =
-      (((x * fov) / (fov + z)) * 130 * document.getElementById("size").value) / 100 + 230;
+    x = (((x * fov) / (fov + z)) * 130 * document.getElementById("size").value) / 100 + 230;
+    y = (((y * fov) / (fov + z)) * 130 * document.getElementById("size").value) / 100 + 250;
 
-    y =
-      (((y * fov) / (fov + z)) * 130 * document.getElementById("size").value) / 100 + 250;
 
     let dot = document.getElementById("dot" + count);
     dot.style.marginLeft = x + "px";
@@ -154,6 +152,7 @@ setInterval(() => {
 
     if (overdrive > 330) {
       //cooling sliders
+
         //show sliders
       document.getElementById("cool1").style.opacity = 1;
       document.getElementById("cool2").style.opacity = 1;
@@ -161,7 +160,7 @@ setInterval(() => {
       document.getElementById("cooltext1").style.opacity = 1;
       document.getElementById("cooltext2").style.opacity = 1;
 
-      //makes seeing cool slider easier
+      //makes seeing cool slider value easier
       let cool1 = document.getElementById("cool1").value;
       let cool2 = document.getElementById("cool2").value;
       
@@ -178,6 +177,7 @@ setInterval(() => {
     }
   } 
   else {
+
     //set all opacity to 0
     document.getElementById("overheatText").style.opacity = 0;
 
@@ -213,6 +213,7 @@ setInterval(() => {
     document.getElementById("heatText").style.opacity = 0;
   }
   
+
 
 
 
